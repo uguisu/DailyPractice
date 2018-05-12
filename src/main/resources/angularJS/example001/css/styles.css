@@ -1,0 +1,37 @@
+body {
+  font-size: 1.2em;
+  background-color: #131314;
+  color: #FFFFFF;
+}
+
+a:link{color: #CF0A0A ; text-decoration:none;}
+a:visited{color: #CF0A0A; text-decoration:none;}
+a:hover {color: #D95757; text-decoration:underline;}
+
+table, td .TableBaseStyle {
+    border-collapse: collapse;
+    font-size: 12px;
+    text-align: left;
+    color: #DDDDDD;
+}
+.TableBaseStyle th {
+    color: #DDDDDD;
+    background-color: #2b2b2b;
+    border: 1px solid #b9b9b9;
+    text-align: center;
+    padding: 2px 0px 1px 5px;
+}
+.TableBaseStyle td {
+    border: 1px solid #b9b9b9;
+    vertical-align: top;
+    padding: 2px 5px 1px 5px;
+}
+.TableBaseStyle td.number {
+    text-align: right;
+}
+.TableBaseStyle tr:nth-child(odd) {
+    background-color: #3D3D3D;
+}
+.TableBaseStyle tr:nth-child(even) {
+    background-color: #8F1C0D;
+}

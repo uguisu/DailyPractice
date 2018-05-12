@@ -1,0 +1,20 @@
+<!--
+  Shows all available categories in the menu to the user.
+-->
+<table class="TableBaseStyle" width="90%" align="center">
+  <tr>
+    <th width="5%">ID</th>
+    <th width="20%">Name</th>
+    <th width="10%">Short Name</th>
+    <th width="60%">Instructions</th>
+    <th width="5%">URL</th>
+  </tr>
+  <tr ng-repeat="item in $ctrl.items">
+    <td class="number">{{ $index+1 }} ({{ item.id }})</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.short_name }}</td>
+    <td>{{ item.special_instructions }}</td>
+    <!-- <td><a href="{{ item.url }}"><img ng-src=" {{ $ctrl.imageurl }}" width="16px"/></a></td> -->
+    <td><a ui-sref="categories.items({itemId: item.short_name})"><img ng-src=" {{ $ctrl.imageurl }}" width="16px"/></a></td>
+  </tr>
+</table>

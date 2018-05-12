@@ -1,0 +1,21 @@
+<!--
+  Shows all of the menu items for a particular category.
+-->
+
+<h3>Details</h3>
+<table class="TableBaseStyle" width="90%" align="center">
+  <tr>
+    <th width="5%">ID</th>
+    <th width="20%">Name</th>
+    <th width="10%">Short Name</th>
+    <th width="55%">Description</th>
+    <th width="10%">Price</th>
+  </tr>
+  <tr ng-repeat="item in $ctrl.itemsdata">
+    <td class="number">{{ $index+1 }} ({{ item.id }})</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.short_name }}</td>
+    <td>{{ item.description }}</td>
+    <td> {{ item.price_small || "0" }} ~ {{ item.price_large || "0" }}</td>
+  </tr>
+</table>
