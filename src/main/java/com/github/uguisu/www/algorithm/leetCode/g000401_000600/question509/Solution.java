@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 public class Solution {
 
+    /*
+    此方法可以解决问题，但是比官方给出的办法来讲要慢很多
     private HashMap<Integer, Integer> cache = new HashMap<>();
 
     public int fib(int n) {
@@ -30,5 +32,22 @@ public class Solution {
 
         return rtn;
     }
+    */
 
+    public int fib(int N) {
+        if (N <= 1) {
+            return N;
+        }
+        return memoize(N);
+    }
+
+    public int memoize(int N) {
+        int[] cache = new int[N + 1];
+        cache[1] = 1;
+
+        for (int i = 2; i <= N; i++) {
+            cache[i] = cache[i-1] + cache[i-2];
+        }
+        return cache[N];
+    }
 }
