@@ -60,11 +60,19 @@ public class Solution {
         // 注意：内外循环不可以交换
         // 硬币
         for(int j : coins) {
+
             // 金额
+            /*
             for(int i = 1; i < amount + 1; i++) {
                 if(i - j >= 0)
                     dp[i] += dp[i - j];
             }
+            */
+            // 优化if条件
+            for(int i = j; i < amount + 1; i++) {
+                dp[i] += dp[i - j];
+            }
+
         }
 
         return dp[amount];
