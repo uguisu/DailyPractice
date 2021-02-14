@@ -21,6 +21,7 @@ public class Solution {
             dp[0][j] = 1;
         }
 
+        // 注意：内外循环可以交换
         // 金额
         for(int i = 1; i < amount + 1; i++) {
             // 硬币
@@ -52,19 +53,17 @@ public class Solution {
             return 0;
 
         // init
-        int coinAmount = coins.length;
         int[] dp = new int[amount + 1];
 
         dp[0] = 1;
 
+        // 注意：内外循环不可以交换
         // 硬币
         for(int j : coins) {
             // 金额
             for(int i = 1; i < amount + 1; i++) {
-
                 if(i - j >= 0)
                     dp[i] += dp[i - j];
-
             }
         }
 
