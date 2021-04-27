@@ -1,7 +1,5 @@
 package com.github.uguisu.www.algorithm.leetCode.g000001_000200.question141;
 
-import java.util.HashSet;
-
 public class Solution {
 
     public boolean hasCycle(ListNode head) {
@@ -16,20 +14,17 @@ public class Solution {
 
         // init
         ListNode slow = head;
-        ListNode faster = head;
-        HashSet<ListNode> path = new HashSet<>();
+        ListNode faster = head.next.next;
 
-        while(true) {
+        while(null != faster) {
 
-            if(path.contains(faster)) {
-                // find cycle
+            if(slow == faster) {
                 rtn = true;
                 break;
             }
-            path.add(faster);
 
             slow = slow.next;
-            if(null != faster.next && null != faster.next.next) {
+            if(null != faster.next) {
                 faster = faster.next.next;
             } else {
                 // access to the last item
