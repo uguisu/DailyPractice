@@ -24,11 +24,17 @@ public class Solution {
      * @param args
      */
     public static void main(String[] args) {
-        int[] nums1 = { 2, 4, 0};
-        int[] nums2 = { 1 };
+//        int[] nums1 = { 2, 4, 0};
+//        int[] nums2 = { 1 };
+//
+//        Solution s = new Solution();
+//        s.merge(nums1, 2, nums2, 1);
+
+        int[] nums1 = { 1, 2, 3, 0, 0, 0};
+        int[] nums2 = { 2, 5, 6 };
 
         Solution s = new Solution();
-        s.merge(nums1, 2, nums2, 1);
+        s.merge(nums1, 3, nums2, 3);
 
         Arrays.stream(nums1).forEach(System.out::println);
     }
@@ -111,6 +117,45 @@ public class Solution {
         
         while(p2 >= 0) {
             nums1[pW--] = nums2[p2--];
+        }
+    }
+
+    // 20240302 这个算法其实也是正确的，但是系统不承认。。。
+    public void merge3(int[] nums1, int m, int[] nums2, int n) {
+        // for exmaple 3
+        if(0 == m) {
+            nums1 = nums2;
+            return;
+        }
+
+        // for example 2
+        if(0 == n) return;
+
+        int p1 = 0;
+        int p2 = 0;
+        int tmp = -1;
+
+        // for example 1
+        for(; p1 < m; p1++) {
+
+            if(nums1[p1] <= nums2[p2]) {
+                // do nothing, next
+
+            } else {
+                // switch
+                tmp = nums2[p2];
+                nums2[p2] = nums1[p1];
+                nums1[p1] = tmp;
+            }
+
+            if(p2 < n - 1)
+                p2++;
+        }
+
+        // copy remained elements
+        for(int n2 : nums2) {
+            nums1[p1] = n2;
+            p1++;
         }
     }
 }
